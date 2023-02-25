@@ -1,0 +1,38 @@
+'CodeQ.HtmlContent:Content.Html':
+  label: '${String.cropAtWord(String.stripTags(q(node).property("html")), 90, "...")}'
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    label: i18n
+    icon: 'icon-code'
+    group: plugins
+    position: 900
+    inspector:
+      groups:
+        htmlcontent:
+          label: i18n
+          icon: 'icon-cogs'
+          position: 10
+  properties:
+    html:
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        showInCreationDialog: true
+        inspector:
+          group: 'htmlcontent'
+          editor: 'Neos.Neos/Inspector/Editors/CodeEditor'
+          editorOptions:
+            buttonLabel: i18n
+            highlightingMode: 'text/html'
+    assets:
+      type: 'array<Neos\Media\Domain\Model\Asset>'
+      ui:
+        label: i18n
+        help:
+          message: i18n
+        reloadIfChanged: false
+        showInCreationDialog: true
+        inspector:
+          group: 'htmlcontent'

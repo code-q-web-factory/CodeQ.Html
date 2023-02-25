@@ -1,0 +1,14 @@
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        CodeQ.HtmlContent: true
+    userInterface:
+      translation:
+        autoInclude:
+          CodeQ.HtmlContent:
+            - 'Fusion/*'
+            - 'NodeTypes/*'
+  Fusion:
+    defaultContext:
+      CodeQ.HtmlContent: 'CodeQ\HtmlContent\Eel\Helper'

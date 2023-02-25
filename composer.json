@@ -1,0 +1,44 @@
+{
+    "name": "codeq/htmlcontent",
+    "description": "HTML content nodes for the Neos CMS",
+    "type": "neos-plugin",
+    "license": "GPL-3.0-or-later",
+    "keywords": [
+        "flow",
+        "neos",
+        "fusion",
+        "html"
+    ],
+    "require": {
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "neos/neos": "~5.0 || ~7.0 || ~8.0 || dev-master"
+    },
+    "authors": [
+        {
+            "name": "Roland Schütz",
+            "email": "rs@codeq.at",
+            "homepage": "https://codeq.at",
+            "role": "Developer"
+        }
+    ],
+    "archive": {
+        "exclude": [
+            ".editorconfig",
+            ".gitattributes",
+            ".github",
+            ".gitignore"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "CodeQ\\HtmlContent\\": "Classes"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "CodeQ.HtmlContent"
+        },
+        "applied-flow-migrations": []
+    }
+}

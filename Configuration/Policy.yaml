@@ -1,0 +1,50 @@
+##
+# Restrict creation and editing of `CodeQ.HtmlContent:Content.Html` to admins
+##
+privilegeTargets:
+  'Neos\ContentRepository\Security\Authorization\Privilege\Node\CreateNodePrivilege':
+    'CodeQ.HtmlContent:Create':
+      label: 'Create a new html node'
+      matcher: 'createdNodeIsOfType("CodeQ.HtmlContent:Content.Html")'
+  'Neos\ContentRepository\Security\Authorization\Privilege\Node\EditNodePrivilege':
+    'CodeQ.HtmlContent:Edit':
+      label: 'Edit a html node'
+      matcher: 'nodeIsOfType("CodeQ.HtmlContent:Content.Html")'
+  'Neos\ContentRepository\Security\Authorization\Privilege\Node\RemoveNodePrivilege':
+    'CodeQ.HtmlContent:Remove':
+      label: 'Remove a html node'
+      matcher: 'nodeIsOfType("CodeQ.HtmlContent:Content.Html")'
+  'Neos\ContentRepository\Security\Authorization\Privilege\Node\EditNodePropertyPrivilege':
+    'CodeQ.HtmlContent:EditProperty':
+      label: 'Edit a html node property'
+      matcher: 'nodeIsOfType("CodeQ.HtmlContent:Content.Html")'
+
+roles:
+  ##
+  # HtmlContentEditor this role is abstract, feel free to use it however you want.
+  # This role is considered public API
+  ##
+  'CodeQ.HtmlContent:Editor':
+    abstract: true
+    label: 'Html Content Editor'
+    description: 'A user with this role is able to create, edit and delete html content nodes.'
+    privileges:
+      - privilegeTarget: 'CodeQ.HtmlContent:Create'
+        permission: GRANT
+      - privilegeTarget: 'CodeQ.HtmlContent:Edit'
+        permission: GRANT
+      - privilegeTarget: 'CodeQ.HtmlContent:Remove'
+        permission: GRANT
+      - privilegeTarget: 'CodeQ.HtmlContent:EditProperty'
+        permission: GRANT
+
+  'Neos.Neos:Administrator':
+    privileges:
+      - privilegeTarget: 'CodeQ.HtmlContent:Create'
+        permission: GRANT
+      - privilegeTarget: 'CodeQ.HtmlContent:Edit'
+        permission: GRANT
+      - privilegeTarget: 'CodeQ.HtmlContent:Remove'
+        permission: GRANT
+      - privilegeTarget: 'CodeQ.HtmlContent:EditProperty'
+        permission: GRANT

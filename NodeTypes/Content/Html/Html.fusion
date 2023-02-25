@@ -1,0 +1,36 @@
+prototype(CodeQ.HtmlContent:Content.Html) < prototype(Neos.Neos:ContentComponent) {
+    html = ${q(node).property('html')}
+    renderJavaScript = ${!node.context.inBackend}
+    isEditable = true
+
+    @context.isEditable = ${this.isEditable}
+    @process.contentElementWrapping.@if.isEditable = ${isEditable}
+
+    renderer = Neos.Fusion:Component {
+        @apply.props = ${props}
+        htmlIsValid = ${CodeQ.HtmlContent.isValidHtml(props.html)}
+        sanitizedHtml = ${props.renderJavaScript ? props.html : String.pregReplace(props.html, '/<script[\s\S]*?>[\s\S]*?<\/script>/i', '')}
+        showJavaScriptRemovaleNotice = ${node.context.inBackend && !props.renderJavaScript && String.pregMatch(props.html, '/<script[\s\S]*?>[\s\S]*?<\/script>/i')}
+
+        renderer = afx`
+            <div class="code-q-html-content">
+                {props.htmlIsValid ? props.sanitizedHtml : null}
+                <div @if.show={node.context.inBackend && !props.htmlIsValid} style="background: red; padding: 1rem;">
+                    {String.replace(I18n.translate('CodeQ.HtmlContent:NodeTypes.Content.Html:htmlInvalidNotice'), '%s', '<br/><code style="display: block; margin: 0.5rem 0; background: grey; padding: 0.5rem;">' + String.htmlSpecialChars(props.html) + '</code><br/>')}
+                    <ul>
+                        {Array.join(Array.map(CodeQ.HtmlContent.getHtmlParsingErrors(props.html), item => '<li>' + item.message + '</li>'), '')}
+                    </ul>
+
+                </div>
+                <div @if.show={props.showJavaScriptRemovaleNotice} style="background: orange; padding: 1rem;">
+                    {I18n.translate('CodeQ.HtmlContent:NodeTypes.Content.Html:javaScriptRemovaleNotice')}
+                </div>
+                <style @if.show={node.context.inBackend}>{'
+                    .code-q-html-content div[class^="style__notInlineEditableOverlay"] {
+                        background: transparent;
+                    }
+                '}</style>
+            </div>
+        `
+    }
+}
