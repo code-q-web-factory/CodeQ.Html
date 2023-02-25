@@ -15,7 +15,7 @@ prototype(CodeQ.HtmlContent:Content.Html) < prototype(Neos.Neos:ContentComponent
         renderer = afx`
             <div class="code-q-html-content">
                 {props.htmlIsValid ? props.sanitizedHtml : null}
-                <div @if.show={node.context.inBackend && !props.htmlIsValid} style="background: red; padding: 1rem;">
+                <div @if.show={node.context.inBackend && !props.htmlIsValid} style="margin: 0.5rem 0; background: red; padding: 1rem;">
                     {String.replace(I18n.translate('CodeQ.HtmlContent:NodeTypes.Content.Html:htmlInvalidNotice'), '%s', '<br/><code style="display: block; margin: 0.5rem 0; background: grey; padding: 0.5rem;">' + String.htmlSpecialChars(props.html) + '</code><br/>')}
                     <ul>
                         {Array.join(Array.map(CodeQ.HtmlContent.getHtmlParsingErrors(props.html), item => '<li>' + item.message + '</li>'), '')}
