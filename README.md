@@ -3,7 +3,9 @@
 
 # HTML Content nodes for Neos CMS
 
-Create HTML content nodes in the administration. Manage who can edit HTML with the role `CodeQ.HtmlContent:HtmlWidgetDefinitionEditor`.
+#### The successor of [CodeQ.HtmlWidget](https://github.com/code-q-web-factory/neos-htmlwidget)
+
+Create content nodes with custom HTML in the Neos CMS. Manage who can edit HTML with the role `CodeQ.HtmlContent:HtmlWidgetDefinitionEditor`.
 
 ## Features
 
