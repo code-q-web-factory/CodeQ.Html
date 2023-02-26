@@ -5,13 +5,16 @@
 
 #### The successor of [CodeQ.HtmlWidget](https://github.com/code-q-web-factory/neos-htmlwidget)
 
-Create content nodes with custom HTML in the Neos CMS. Manage who can edit HTML with the role `CodeQ.HtmlContent:HtmlWidgetDefinitionEditor`.
+Create content nodes with HTML code, e.g. external players or iframe embeds. Manage who can create and editor those nodes with the role `CodeQ.HtmlContent:HtmlWidgetDefinitionEditor`.
 
 ## Features
 
 * Validates HTML and prevents the backend from breaking by not rendering broken HTML
 * Automatically removes JavaScript code in the backend, to not break the Neos Administration
 * Used media assets can be set on the node, so these assets can not be deleted.
+
+
+[![HTML Content Demo](https://img.youtube.com/vi/QLe6tRWsYWQ/0.jpg)](https://youtu.be/QLe6tRWsYWQ)
 
 *The development and the public-releases of this package are generously sponsored by [Code Q Web Factory](http://codeq.at).*
 
