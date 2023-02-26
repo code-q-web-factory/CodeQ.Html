@@ -1,5 +1,5 @@
 'CodeQ.HtmlContent:Content.Html':
-  label: '${String.cropAtWord(String.stripTags(q(node).property("html")), 90, "...")}'
+  label: '${String.cropAtWord(String.stripTags(q(node).property("html")), 90, "...") || Neos.Node.labelForNode(node)}'
   superTypes:
     'Neos.Neos:Content': true
   ui:
