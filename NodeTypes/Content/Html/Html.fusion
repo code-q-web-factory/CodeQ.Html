@@ -24,10 +24,10 @@ prototype(CodeQ.HtmlContent:Content.Html) < prototype(Neos.Neos:ContentComponent
 
                 </div>
                 <div @if.show={node.context.inBackend && props.postProcessedHtml.hasAutofixedClosingTags()} style="background: orange; padding: 1rem;">
-                    Some missing closing tags were automatically fixed. Please check your HTML-Code!
+                    {I18n.translate('CodeQ.HtmlContent:NodeTypes.Content.Html:hasAutofixedClosingTagsNotice')}
                 </div>
                 <div @if.show={props.showJavaScriptRemovaleNotice} style="background: orange; padding: 1rem;">
-                    {I18n.translate('CodeQ.HtmlContent:NodeTypes.Content.Html:javaScriptRemovaleNotice')}
+                    {I18n.translate('CodeQ.HtmlContent:NodeTypes.Content.Html:javaScriptRemovalNotice')}
                 </div>
                 <style @if.show={node.context.inBackend}>{'
                     .code-q-html-content div[class^="style__notInlineEditableOverlay"] {

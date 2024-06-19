@@ -26,13 +26,17 @@
                 <source>You can link any used media assets. This will have no effect on the HTML itself, but it prevents that these media assets can be deleted and shows the correct usage information in the media browser.</source>
                 <target xml:lang="de" state="translated">Du kannst beliebige Medieninhalte verlinken. Dies hat keine Auswirkung auf das HTML, es verhindert jedoch, dass diese Medienelemente gelöscht werden können und zeigt die korrekten Nutzungsinformationen im Medienbrowser an.</target>
             </trans-unit>
-            <trans-unit id="javaScriptRemovaleNotice" xml:space="preserve">
+            <trans-unit id="javaScriptRemovalNotice" xml:space="preserve">
                 <source>JavaScript is blocked in the Backend, but will be rendered in the live website.</source>
                 <target xml:lang="de" state="translated">JavaScript wird hier in der Administration blockiert, auf der Live-Webseite wird es ausgeführt.</target>
             </trans-unit>
             <trans-unit id="htmlInvalidNotice" xml:space="preserve">
                 <source>The HTML was not valid and can not be displayed. %s Please fix the following issues:</source>
                 <target xml:lang="de" state="translated">Der HTML-Code war ungültig und kann nicht angezeigt werden. %s Bitte beheben Sie die folgende Probleme:</target>
+            </trans-unit>
+            <trans-unit id="hasAutofixedClosingTagsNotice" xml:space="preserve">
+                <source>Some missing closing tags were automatically fixed.</source>
+                <target xml:lang="de" state="translated">Einige fehlende schließende Tags wurden automatisch ergänzt.</target>
             </trans-unit>
         </body>
     </file>

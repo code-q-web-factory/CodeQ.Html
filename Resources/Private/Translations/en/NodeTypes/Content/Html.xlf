@@ -20,11 +20,14 @@
             <trans-unit id="properties.assets.ui.help.message" xml:space="preserve">
                 <source>If you are use dynamic assets in your HTML, you can prevent those assets from being deleted by linking them here. This will have no effect on the HTML itself, the references here are never actually used. But it prevents that these media assets can be deleted.</source>
             </trans-unit>
-            <trans-unit id="javaScriptRemovaleNotice" xml:space="preserve">
+            <trans-unit id="javaScriptRemovalNotice" xml:space="preserve">
                 <source>JavaScript is blocked in the Backend, but will be rendered in the live website.</source>
             </trans-unit>
             <trans-unit id="htmlInvalidNotice" xml:space="preserve">
                 <source>The HTML was not valid and can not be displayed. %s Please fix the following issues:</source>
+            </trans-unit>
+            <trans-unit id="hasAutofixedClosingTagsNotice" xml:space="preserve">
+                <source>Some missing closing tags were automatically fixed.</source>
             </trans-unit>
         </body>
     </file>
