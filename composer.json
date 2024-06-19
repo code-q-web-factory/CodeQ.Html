@@ -1,6 +1,6 @@
 {
-    "name": "codeq/htmlcontent",
     "description": "HTML content nodes for the Neos CMS",
+    "name": "neosidekick/htmlcontent",
     "type": "neos-plugin",
     "license": "GPL-3.0-or-later",
     "keywords": [
@@ -16,8 +16,14 @@
     },
     "authors": [
         {
-            "name": "Roland Schütz",
+            "name": "Roland Sch\u00fctz",
             "email": "rs@codeq.at",
+            "homepage": "https://codeq.at",
+            "role": "Developer"
+        },
+        {
+            "name": "Felix Gradinaru",
+            "email": "fg@codeq.at",
             "homepage": "https://codeq.at",
             "role": "Developer"
         }
@@ -32,13 +38,16 @@
     },
     "autoload": {
         "psr-4": {
-            "CodeQ\\HtmlContent\\": "Classes"
+            "NEOSidekick\\HtmlContent\\": "Classes"
         }
     },
     "extra": {
         "neos": {
-            "package-key": "CodeQ.HtmlContent"
+            "package-key": "NEOSidekick.HtmlContent"
         },
         "applied-flow-migrations": []
+    },
+    "replace": {
+        "codeq/htmlcontent": "self.version"
     }
 }

@@ -1,11 +1,11 @@
-[![Latest Stable Version](https://poser.pugx.org/codeq/htmlcontent/v/stable)](https://packagist.org/packages/codeq/htmlcontent)
-[![License](https://poser.pugx.org/codeq/htmlcontent/license)](LICENSE)
+[![Latest Stable Version](https://poser.pugx.org/neosidekick/htmlcontent/v/stable)](https://packagist.org/packages/codeq/htmlcontent)
+[![License](https://poser.pugx.org/neosidekick/htmlcontent/license)](LICENSE)
 
 # HTML Content nodes for Neos CMS
 
 #### The successor of [CodeQ.HtmlWidget](https://github.com/code-q-web-factory/neos-htmlwidget)
 
-Create content nodes with HTML code, e.g. external players or iframe embeds. Manage who can create and editor those nodes with the role `CodeQ.HtmlContent:HtmlWidgetDefinitionEditor`.
+Create content nodes with HTML code, e.g. external players or iframe embeds. Manage who can create and editor those nodes with the role `NEOSidekick.HtmlContent:HtmlWidgetDefinitionEditor`.
 
 ## Features
 
@@ -20,10 +20,10 @@ Create content nodes with HTML code, e.g. external players or iframe embeds. Man
 
 ## Installation
 
-CodeQ.HtmlContent is available via packagist. `"codeq/htmlcontent" : "~1.0"` to the require section of the composer.json or run:
+NEOSidekick.HtmlContent is available via packagist. `"neosidekick/htmlcontent" : "~2.0"` to the require section of the composer.json or run:
 
 ```bash
-composer require codeq/htmlcontent
+composer require neosidekick/htmlcontent
 ```
 
 We use semantic-versioning so every breaking change will increase the major-version number.
@@ -32,20 +32,20 @@ We use semantic-versioning so every breaking change will increase the major-vers
 
 Just set the NodeType to abstract and do your own thing:
 ```yaml
-'CodeQ.HtmlContent:Content.Html':
+'NEOSidekick.HtmlContent:Content.Html':
   abstract: true
 ```
 ```yaml
 'YOUR.PACKAGE:Content.Html':
   superTypes:
-    'CodeQ.HtmlContent:Content.Html': true
+    'NEOSidekick.HtmlContent:Content.Html': true
 ```
 
 ```neosfusion
 prototype(YOUR.PACKAGE:Content.Html) < prototype(Neos.Neos:ContentComponent) {
   renderer = afx`
     <div class="container">
-      <CodeQ.HtmlContent:Content.Html isEditable={false}/>
+      <NEOSidekick.HtmlContent:Content.Html isEditable={false}/>
     </div>
   `
 }

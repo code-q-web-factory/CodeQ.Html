@@ -1,0 +1,21 @@
+up:
+  migration:
+    - filters:
+        - type: 'NodeType'
+          settings:
+            nodeType: 'CodeQ.HtmlContent:Content.Html'
+      transformations:
+        - type: 'ChangeNodeType'
+          settings:
+            newType: 'NEOSidekick.HtmlContent:Content.Html'
+
+down:
+  migration:
+    - filters:
+        - type: 'NodeType'
+          settings:
+            nodeType: 'NEOSidekick.HtmlContent:Content.Html'
+      transformations:
+        - type: 'ChangeNodeType'
+          settings:
+            newType: 'CodeQ.HtmlContent:Content.Html'

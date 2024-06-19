@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeQ\HtmlContent\Dto;
+namespace NEOSidekick\HtmlContent\Dto;
 
 use LibXMLError;
 use Neos\Eel\ProtectedContextAwareInterface;

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeQ\HtmlContent\Eel;
+namespace NEOSidekick\HtmlContent\Eel;
 
-use CodeQ\HtmlContent\Dto\HtmlParsingResultDto;
+use NEOSidekick\HtmlContent\Dto\HtmlParsingResultDto;
 use Neos\Flow\Annotations as Flow;
 use Neos\Eel\ProtectedContextAwareInterface;
 use DOMDocument;
