@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace CodeQ\HtmlContent\Eel;
 
+use CodeQ\HtmlContent\Dto\HtmlParsingResultDto;
 use Neos\Flow\Annotations as Flow;
 use Neos\Eel\ProtectedContextAwareInterface;
 use DOMDocument;
@@ -14,17 +15,32 @@ class Helper implements ProtectedContextAwareInterface
 {
     public function isValidHtml($html = ''): bool
     {
-        return empty($this->getHtmlParsingErrors($html));
+        return !$this->postProcessHtml($html)->hasErrors();
     }
 
-    public function getHtmlParsingErrors($html = ''): array
+    public function postProcessHtml($html = ''): HtmlParsingResultDto
     {
         $internalErrorsInitialState = libxml_use_internal_errors(true);
         $dom = new DOMDocument;
         $dom->loadHTML($html);
-        $result = libxml_get_errors();
+        $postProcessedBodyNode = $dom->getElementsByTagName('body')->item(0);
+        $postProcessedHtml = str_replace(['<body>', '</body>'], '', $dom->saveHTML($postProcessedBodyNode));
+        // We filter some of the errors because they are false-positives
+        // e.g. code 801 => wrong tag name
+        // For more codes see: https://gnome.pages.gitlab.gnome.org/libxml2/devhelp/libxml2-xmlerror.html
+        $result = [];
+        foreach (libxml_get_errors() as $error) {
+            // Skip unknown tags
+            if ($error->code === 801) {
+                continue;
+            }
+
+            $result[] = $error;
+        }
+
         libxml_use_internal_errors($internalErrorsInitialState);
-        return $result;
+
+        return new HtmlParsingResultDto($html, $postProcessedHtml, $result);
     }
 
     /**
